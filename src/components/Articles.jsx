@@ -16,9 +16,7 @@ const Articles = () => {
         })
     }, [])
 
-    if(isLoading) return (
-    <h1>Loading...</h1>
-    )
+    if(isLoading) return <h1>Loading....</h1>
     
     return (
         <div id = 'articles'>
@@ -27,6 +25,7 @@ const Articles = () => {
                      return <ArticleShowCard article = {article} key = {article.article_id}/>
                 })}
             </ul>
+            
         </div>
     );
 };

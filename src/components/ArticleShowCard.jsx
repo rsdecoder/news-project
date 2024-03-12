@@ -2,13 +2,18 @@ import React from 'react';
 import { useState } from 'react';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
-import ForumSharpIcon from '@mui/icons-material/ForumSharp';
+import Comments from './Comments';
+import Expander from './Expander';
 import { useNavigate, Link } from 'react-router-dom';
+
+
 
 
 const ArticleShowCard = ({article}) => {
     const [count, setCount] = useState(0)
     const { topic, votes, created_at, title, article_img_url, author, comment_count, article_id } = article;
+    
+
 
 
 
@@ -31,12 +36,17 @@ const ArticleShowCard = ({article}) => {
             </div>
 
         </div>
-        <div className='comments'>
-            <ForumSharpIcon className ='vote-section-item'/>
-            <p className ='vote-section-item'>{comment_count}</p>
-        </div>
+        {/* <button value = {article_id} className='comments-button' onClick={handleClickComments}><ForumSharpIcon className ='vote-section-item'/>{comment_count}
+        </button> */}
       </div> 
+      <Expander className = "comments-expander" comment_count = {comment_count}>
+     <div>
+      
+       {<Comments articleId = {article_id}/>}
+     </div>
+   </Expander>
     </article>
+
   );
 };
 

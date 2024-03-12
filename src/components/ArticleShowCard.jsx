@@ -12,8 +12,16 @@ import { useNavigate, Link } from 'react-router-dom';
 const ArticleShowCard = ({article}) => {
     const [count, setCount] = useState(0)
     const { topic, votes, created_at, title, article_img_url, author, comment_count, article_id } = article;
-    
+    const [isClicked, setIsClicked] = useState(false)
 
+  function handleClick() {
+    setIsClicked(true)
+    if(!isClicked){
+      alert("clicked!")
+      setIsClicked(false)
+    }
+    
+  }
 
 
 
@@ -27,11 +35,11 @@ const ArticleShowCard = ({article}) => {
       <div className= "rating article-item">
         <div className = "vote">
             <div className ="up-vote">
-                <ThumbUpAltOutlinedIcon className ='vote-section-item'/>
+                <button className= "button-vote" onClick = {handleClick}><ThumbUpAltOutlinedIcon className ='vote-section-item'/></button>
                 <p className ='vote-section-item'>{count}</p>
             </div>
             <div className ="down-vote">
-                <ThumbDownAltOutlinedIcon className ='vote-section-item'/>
+                <button className= "button-vote" onClick = {handleClick}><ThumbDownAltOutlinedIcon className ='vote-section-item'/></button>
                 <p className ='vote-section-item'>{count}</p>
             </div>
 

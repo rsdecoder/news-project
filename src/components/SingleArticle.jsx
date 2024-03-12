@@ -2,6 +2,7 @@ import React from 'react';
 import {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import  { fetchArticlesById }  from '../../apis';
+import Comments from './Comments';
 
 const SingleArticle = () => {
     const {article_id} = useParams()
@@ -25,6 +26,9 @@ const SingleArticle = () => {
             </article><br></br>
             <p><b>Written by:</b> <i>{article.author}</i></p>
             <p><b>Date created - </b>{article.created_at}</p>
+            <div>
+                <Comments articleId = {article_id}/>
+            </div>
         </div>
     );
 };

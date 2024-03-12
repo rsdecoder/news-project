@@ -12,11 +12,6 @@ const Comments = ({articleId}) => {
         fetchAllComments(articleId)
         .then(({comments}) => {
             setComments(comments)
-            comments.forEach((comment) => {
-                if(Number(comment.article_id) === Number(articleId)){
-                    setArticleComment({...comment})
-                }
-            })
             setIsLoading(false)
         })
     }, [])
@@ -24,7 +19,10 @@ const Comments = ({articleId}) => {
     return (
         <div className = "comment-body">
             <h3 className = "comment-items">Comments: </h3>
-             <CommentCard comment = {articleComment} className = "comment-items"/>
+            {comments.map((comment) => {
+                return <CommentCard comment = {comment} className = "comment-items"/>
+            })}
+            
         </div>
     );
 };

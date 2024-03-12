@@ -4,8 +4,8 @@ import Header from './components/Header'
 // import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Articles from './components/Articles'
-import ArticleShowCard from './components/ArticleShowCard'
 import SingleArticle from './components/SingleArticle'
+import Comments from './components/Comments'
 import './App.css'
 
 function App() {

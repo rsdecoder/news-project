@@ -4,19 +4,21 @@ import ArticleShowCard from './ArticleShowCard';
 import RotateRightSharpIcon from '@mui/icons-material/RotateRightSharp';
 
 const Articles = () => { 
-    const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true);
+    const [articles, setArticles] = useState([])
 
     useEffect(() => {
-        setIsLoading(true)
+        setIsLoading(true);
         fetchArticles()
         .then(({articles}) => {
             setArticles(articles)
-            setIsLoading(false)
+            setIsLoading(false);
         })
     }, [])
 
-    if(isLoading) return <h1>Loading....</h1>
+    if(isLoading) {
+        return <h1 className='loader'>Loading....<RotateRightSharpIcon /></h1>
+    } 
     
     return (
         <div id = 'articles'>

@@ -1,3 +1,4 @@
+
 .header {
     background-color: sandybrown;
     text-align: left;
@@ -33,6 +34,11 @@
     margin: 10px;
     z-index: -10;
 }
+.loader {
+    position: relative;
+    top: 150px;
+    z-index: +1;
+}
 
 #articles {
     display: flex;
@@ -67,12 +73,20 @@
 }
 .vote { 
     width: 150px;
+    height: 50px;
+    display: inline-flex;
+    margin: 10px 10px 10px 10px;
     border: 1px solid black;
     background-color: rgb(202, 223, 232);
     border-radius: 5%;
 }
-.vote-section-item {
-   padding: 2px;
+.vote-section {
+    display: inline-flex;
+}
+
+.vote-count {
+    padding: 10px 15px 10px 10px;
+    font-size: 20px;
 
 }
 
@@ -90,7 +104,9 @@
 }
 .comments-button{
     display: inline-flex;
-    padding: 8px;
+    padding: 10px;
+    margin: 10px;
+    height: 50px;
     width: 150px;
     font-weight: bold;
     font-size: 10px;
@@ -112,7 +128,7 @@
     top: 140px;
     z-index: -10;
     align-items:first baseline;
-    margin: 5px;
+    margin: 16px;
 
 
 }
@@ -128,17 +144,21 @@
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    margin-left: 0px;
     border: 4px solid rgb(93, 93, 228);
     background-color:  rgb(106, 180, 209);
     height: 500px;
     border-radius: 20px;
     overflow: scroll;
 }
+
+.comment-list {
+    margin: 0px;
+}
 .comment-body-container {
-    margin: 20px;
     border-radius: 20px;
     font-size: 16px;
-    margin: 10px;
+    margin-top:10px;
     color: black;
 }
 .comment-container {
@@ -156,6 +176,7 @@
 }
 .comment-items {
     margin: 10px;
+    padding: 10px;
 }
 .grey {
     color: rgb(107, 86, 86);

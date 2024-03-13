@@ -4,6 +4,7 @@ import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 import Comments from './Comments';
 import Expander from './Expander';
+import { patchArticle } from '../../apis';
 import { useNavigate, Link } from 'react-router-dom';
 
 
@@ -12,19 +13,28 @@ import { useNavigate, Link } from 'react-router-dom';
 const ArticleShowCard = ({article}) => {
     const [count, setCount] = useState(0)
     const { topic, votes, created_at, title, article_img_url, author, comment_count, article_id } = article;
-    const [isClicked, setIsClicked] = useState(false)
+    const [updatedVotes, setUpdatedVotes] = useState(votes);
 
-  function handleClick() {
-    setIsClicked(true)
-    if(!isClicked){
-      alert("clicked!")
-      setIsClicked(false)
-    }
-    
+
+    function upVote() {
+        
+      setUpdatedVotes((currVotes) => {
+        return currVotes + 1
+      })
+      const incVotes = 1
+      patchArticle(article_id, incVotes).catch(err => console.log(err))
+        
   }
 
-
-
+  function downVote() {
+        
+    setUpdatedVotes((currVotes) => {
+      return currVotes - 1
+    })
+    const incVotes = -1
+    patchArticle(article_id, incVotes).catch(err => console.log(err))
+      
+}
 
   return (
     <article className= "article"> 
@@ -35,17 +45,14 @@ const ArticleShowCard = ({article}) => {
       <div className= "rating article-item">
         <div className = "vote">
             <div className ="up-vote">
-                <button className= "button-vote" onClick = {handleClick}><ThumbUpAltOutlinedIcon className ='vote-section-item'/></button>
-                <p className ='vote-section-item'>{count}</p>
+                <button className= "button-vote" onClick = {upVote}><ThumbUpAltOutlinedIcon className ='vote-section-item'/></button>
             </div>
+            <p className='vote-section-item vote-count'>{updatedVotes}</p>
             <div className ="down-vote">
-                <button className= "button-vote" onClick = {handleClick}><ThumbDownAltOutlinedIcon className ='vote-section-item'/></button>
-                <p className ='vote-section-item'>{count}</p>
+                <button className= "button-vote" onClick = {downVote}><ThumbDownAltOutlinedIcon className ='vote-section-item'/></button>
             </div>
 
         </div>
-        {/* <button value = {article_id} className='comments-button' onClick={handleClickComments}><ForumSharpIcon className ='vote-section-item'/>{comment_count}
-        </button> */}
       </div> 
       <Expander className = "comments-expander" comment_count = {comment_count}>
      <div>

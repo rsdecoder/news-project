@@ -1,0 +1,25 @@
+
+    function handleClick() {
+        setIsShowing((currShowing) => {
+            return !currShowing
+        })
+    }
+
+    function togglecontent() {
+        if(isShowing) {
+            return (
+                <form id="form-submit" className='comment-items' onSubmit = {handleSubmit}>
+                <label htmlFor = "comment"></label>
+                <input id = 'comment' placeholder = "Leave a comment" className='comment-box comment-items' onChange={(event) => setNewComment(event.target.value)}></input>
+                <input type='submit' className='comment-items submit-button'></input>
+            </form>
+            )
+        }
+        else {
+            return null;
+        }
+    }
+
+
+
+    console.log(newComment, "<<<fresh")

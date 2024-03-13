@@ -1,25 +1,31 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
-// import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
-import Comments from './components/Comments'
+import Users from './components/Users'
 import './App.css'
+import UserContext from './contexts/User'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [loggedInUser, setLoggedInUser] = useState({
+    username: 'strongbuddy',
+    avatar_url: 'Mr.Strong.png'
+  })
 
   return (
-    <div>
+    <>
+    <UserContext.Provider value={{loggedInUser: loggedInUser, setLoggedInUser: setLoggedInUser}}>
       <Header />
-      <Routes>
-        <Route path = "/" element = {<Home />} />
-        <Route path = "/articles" element = {<Articles />} />
-        <Route path = "/articles/:article_id" element = {<SingleArticle />} />
-      </Routes>
-    </div>
+        <Routes>
+          <Route path = "/" element = {<Home />} />
+          <Route path = "/articles" element = {<Articles />} />
+          <Route path = "/articles/:article_id" element = {<SingleArticle />} />
+          <Route path = "/users" element = {<Users/>}/>
+        </Routes>
+      </UserContext.Provider>
+    </>
   )
 }
 

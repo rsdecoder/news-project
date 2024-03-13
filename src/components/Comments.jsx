@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAllComments } from '../../apis';
 import CommentCard from './CommentCard';
+import CommentAdder from './CommentAdder';
+
 
 const Comments = ({articleId}) => {
-    const [articleComment, setArticleComment] = useState({})
     const [isLoading, setIsLoading] = useState(true);
     const [comments, setComments] =  useState([])
 
@@ -15,13 +16,21 @@ const Comments = ({articleId}) => {
             setIsLoading(false)
         })
     }, [])
+
+
+
+
+
+
+
+
     if(isLoading) return <h1>Loading...</h1>
     return (
         <div className = "comment-body">
-            <h3 className = "comment-items">Comments: </h3>
+            <CommentAdder setComments = {setComments} articleId = {articleId}/>
             <ul className='comment-list'>
-            {comments.map((comment) => {
-                return <CommentCard comment = {comment} className = "comment-items" key = {comment.comment_id}/>
+            {comments.map((comment, index) => {
+                return <CommentCard comment = {comment} className = "comment-items" key = {index}/>
             })}
             </ul>
 

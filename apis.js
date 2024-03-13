@@ -22,3 +22,13 @@ export const fetchArticles = () => {
       return response.data;
     })
   }
+
+  export const patchArticle = (article_id, incVotes) =>  {
+    const patchBody = {
+      inc_votes: incVotes
+    }
+    return articlesApi.patch(`articles/${article_id}`, patchBody)
+    .then((response) => {
+      return response
+    })
+  }

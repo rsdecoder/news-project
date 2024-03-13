@@ -19,9 +19,12 @@ const Comments = ({articleId}) => {
     return (
         <div className = "comment-body">
             <h3 className = "comment-items">Comments: </h3>
+            <ul className='comment-list'>
             {comments.map((comment) => {
-                return <CommentCard comment = {comment} className = "comment-items"/>
+                return <CommentCard comment = {comment} className = "comment-items" key = {comment.comment_id}/>
             })}
+            </ul>
+
             
         </div>
     );

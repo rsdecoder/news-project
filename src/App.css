@@ -282,3 +282,70 @@
 .err-msg {
     color: red;
 }
+
+#topics {
+    border-radius: 50px;
+    background-color: rgb(93, 207, 207);
+    display: block;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    width: 100%;
+    position: absolute;
+    top: 250px;
+    z-index: -10;
+}
+.topic-header {
+    font-size: 35px;
+    margin: 20px;
+    font-weight: 500;
+}
+.topics-list {
+   display: flex;
+   align-items: center;
+   margin-top: 10%;
+   justify-content: center;
+   width: 100%;
+   color: blue;
+
+}
+.topic-container {
+    border: 4px solid green;
+    background-color: rgb(161, 209, 161);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    width: 400px;
+    height: 200px;
+    margin-right: 20px;
+}
+/* .topic-container:hover {
+    background-color: rgb(211, 138, 69);
+} */
+.topic-item {
+    padding: 20px;
+    align-self: center;
+
+}
+.topic-slug {
+    font-size: 25px;
+}
+.topic-desc {
+    font-size: 18px;
+    color: black;
+}
+.topic-button {
+    border-radius: 30px;
+    background-color: rgb(109, 109, 232);
+    border: 4px solid rgb(55, 43, 223);
+    color: white;
+    text-align: center;
+    width: fit-content;
+}
+.topic-button:hover {
+    background-color: rgb(213, 68, 68);
+    border: 4px solid blue;
+    color: white;
+}

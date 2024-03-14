@@ -10,6 +10,7 @@ import { patchArticle } from '../../apis';
 
 const SingleArticle = () => {
     const {article_id} = useParams()
+    const [err, setErr] =  useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const [article, setArticle] = useState({})
 
@@ -26,21 +27,36 @@ const SingleArticle = () => {
         setArticle((currArticle) => {
             return currArticle.map((article) => {
                 return {...article, votes: article.votes + 1}
-        })
-    });
-    const incVotes = 1
-    patchArticle(article_id, incVotes).catch(err => console.log(err))
-        
+            })
+        });
+        const incVotes = 1
+        patchArticle(article_id, incVotes).catch((err) => {
+            console.log(err);
+            setArticle((currArticle) => {
+                return currArticle.map((article) => {
+                    return {...article, votes: article.votes - 1}
+                });
+            });
+            setErr("Something went Wrong! Please Try again after sometime.")           
+        });
+    
     }
 
     function downVote() {
         setArticle((currArticle) => {
             return currArticle.map((article) => { 
                 return {...article, votes: article.votes - 1}
-        })
-    }); 
-    const decVotes = -1;
-    patchArticle(article_id, decVotes).catch(err => console.log(err))    
+            })
+        }); 
+        const decVotes = -1;
+        patchArticle(article_id, decVotes).catch((err) =>  {
+            console.log(err)
+            setArticle((currArticle) => {
+                return currArticle.map((article) => {
+                    return {...article, votes: article.votes + 1}
+                })
+            }) 
+        })    
     }
 
     if (isLoading) return <h1 className='loader'>Loading....</h1>
@@ -67,7 +83,7 @@ const SingleArticle = () => {
                         <button value = "down" className='button-vote' onClick = {downVote}><ThumbDownAltOutlinedIcon className ='vote-section-item'/></button>
                     </div>
                 </div>
-                <Expander className = "comments-expander">
+                <Expander className = "comments-expander" comment_count = {article[0].comment_count}>
                     <Comments articleId = {article_id}/>
                 </Expander>
             </section>

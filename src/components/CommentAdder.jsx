@@ -7,7 +7,7 @@ import { postComment } from '../../apis';
 
 
 const CommentAdder = ({setComments, articleId}) => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const[isLoading, setIsLoading] =  useState(false)
     const [isShowing,setIsShowing] = useState(false)
     const [writeComment, setWriteComment] = useState("")
@@ -23,9 +23,11 @@ const CommentAdder = ({setComments, articleId}) => {
                     return [newcommentFromapi, ...currComments]
                 })
             })
+        .catch((err) => {
+            
+        })
             setIsLoading(false)
-
-    }  
+    } 
     
 
     function togglecontent() {
@@ -47,7 +49,6 @@ const CommentAdder = ({setComments, articleId}) => {
         if(loggedInUser.username === 'strongbuddy'){
             alert("user login required")
             navigate('/users');
-            navigate(`/articles/${articleId}`);
         } 
         else {
             setIsShowing((currShowing) => {

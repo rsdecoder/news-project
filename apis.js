@@ -37,7 +37,6 @@ export const patchArticle = (article_id, incVotes) => {
 
 export const fetchAllUsers = () => {
   return articlesApi.get("/users").then((response) => {
-    console.log(response.data);
     return response.data;
   });
 };
@@ -52,4 +51,11 @@ export const postComment = (articleId, userName, writeComment) => {
     .then((response) => {
       return response.data.newcomment[0];
     });
+};
+
+export const deleteComment = (commentId) => {
+  return articlesApi.delete(`/comments/${commentId}`)
+  .then((response) => {
+    return response
+  });
 };

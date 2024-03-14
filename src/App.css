@@ -102,6 +102,15 @@
     align-items: center;
     margin: 10px;
 }
+.delete-button {
+    margin-left: 60px;
+    background-color: rgb(141, 166, 189);
+}
+
+.delete-button:hover {
+    background-color: red;
+    color:white;
+}
 .comments-button{
     display: inline-flex;
     padding: 10px;
@@ -256,14 +265,20 @@
 }
 
 .logged-in-img {
-    height: 50px;
-    width: 50px;
-    border: 1px solid red;
+    height: 70px;
+    margin-bottom: 6px;
+    width: 70px;
+    border: 2px solid red;
+    border-radius: 20px;
+    padding: 2px;
     background-color: white;
     align-self: center;
 }
 .logged-in-user {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-    color: blue;
+    color: rgb(0, 47, 255);
+}
+.err-msg {
+    color: red;
 }

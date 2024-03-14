@@ -5,6 +5,7 @@ import CommentAdder from './CommentAdder';
 
 
 const Comments = ({articleId}) => {
+    const [err, setErr] = useState(null)
     const [isLoading, setIsLoading] = useState(true);
     const [comments, setComments] =  useState([])
 
@@ -15,7 +16,7 @@ const Comments = ({articleId}) => {
             setComments(comments)
             setIsLoading(false)
         })
-    }, [])
+    }, [setComments])
 
 
 
@@ -26,11 +27,12 @@ const Comments = ({articleId}) => {
 
     if(isLoading) return <h1>Loading...</h1>
     return (
+        
         <div className = "comment-body">
             <CommentAdder setComments = {setComments} articleId = {articleId}/>
             <ul className='comment-list'>
             {comments.map((comment, index) => {
-                return <CommentCard comment = {comment} className = "comment-items" key = {index}/>
+                return <CommentCard comment = {comment} setComments = {setComments} className = "comment-items" key = {index}/>
             })}
             </ul>
 

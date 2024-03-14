@@ -4,8 +4,8 @@ const articlesApi = axios.create({
   baseURL: "https://nc-news-1-ukr6.onrender.com/api",
 });
 
-export const fetchArticles = () => {
-  return articlesApi.get("/articles").then((response) => {
+export const fetchArticles = (topicQuery) => {
+  return articlesApi.get("/articles", {params: {topic : topicQuery}}).then((response) => {
     return response.data;
   });
 };
@@ -16,9 +16,24 @@ export const fetchArticlesById = (article_id) => {
   });
 };
 
+export const fetchArticlesByTopic = (topic) => {
+  return articlesApi.get(`/articles?topic=${topic}`).then((response) => {
+    return response.data;
+  })
+}
+
+
 export const fetchAllComments = (article_id) => {
   return articlesApi
     .get(`/articles/${article_id}/comments`)
+    .then((response) => {
+      return response.data;
+    });
+};
+
+export const fetchAllTopics = () => {
+  return articlesApi
+    .get('/topics')
     .then((response) => {
       return response.data;
     });
@@ -59,3 +74,5 @@ export const deleteComment = (commentId) => {
     return response
   });
 };
+
+

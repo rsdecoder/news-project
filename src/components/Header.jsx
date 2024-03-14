@@ -16,6 +16,7 @@ const Header = () => {
         <nav className = "nav">
             <Link to ="/"  className="nav-item"> Home</Link>
             <Link to ="/articles" className='nav-item'>Articles</Link>
+            <Link to ="/topics" className='nav-item'>Topics</Link>
             <Link to ="/users" className = 'nav-item nav-log-in'>Login</Link>
             <Link to ="/articles/:article" className='nav-item'></Link>
        </nav>

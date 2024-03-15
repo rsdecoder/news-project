@@ -64,7 +64,7 @@ const CommentAdder = ({setComments, articleId}) => {
     if(isLoading) return <h1>Loading....</h1>
     return (
         <div className='new-comment-box'>
-            <button value = {writeComment} id="comments" className = "comment-items comment-add-button" onClick = {handleClick}>Add a comment </button>
+            <button value = {writeComment} id="comments" className = "comment-items comment-add-button"  onClick = {handleClick}>Add a comment </button>
             {togglecontent()}
         </div>
     );

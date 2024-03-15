@@ -349,3 +349,18 @@
     border: 4px solid blue;
     color: white;
 }
+
+.error-page {
+    position: absolute;
+    top: 260px;
+    margin: 10px;
+}
+.error-paragraph {
+    color: black;
+    font-size: 18px;
+}
+.sort-articles {
+   margin-top: 10px;
+   margin-left: 50%;
+   font-size: 18px;
+}

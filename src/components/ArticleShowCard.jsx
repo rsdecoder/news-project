@@ -22,7 +22,12 @@ const ArticleShowCard = ({article}) => {
         return currVotes + 1
       })
       const incVotes = 1
-      patchArticle(article_id, incVotes).catch(err => console.log(err))
+      patchArticle(article_id, incVotes).catch((err) => {
+            console.log(err);
+            setUpdatedVotes((currVotes) => {
+              return currVotes -1
+            })         
+        });
         
   }
 
@@ -31,8 +36,13 @@ const ArticleShowCard = ({article}) => {
     setUpdatedVotes((currVotes) => {
       return currVotes - 1
     })
-    const incVotes = -1
-    patchArticle(article_id, incVotes).catch(err => console.log(err))
+    const decVotes = -1
+    patchArticle(article_id, decVotes).catch((err) => {
+      console.log(err);
+      setUpdatedVotes((currVotes) => {
+        return currVotes +1
+      })         
+  });
       
 }
 

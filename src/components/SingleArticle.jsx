@@ -7,8 +7,10 @@ import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 import Expander from './Expander';
 import { patchArticle } from '../../apis';
+import ErrorPage from './ErrorPage';
 
 const SingleArticle = () => {
+    const [err, setErr] = useState(null)
     const {article_id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
     const [article, setArticle] = useState({})
@@ -19,6 +21,9 @@ const SingleArticle = () => {
         .then(({article}) => {
             setArticle(article)
             setIsLoading(false)
+        }).catch((err) => {
+            const {msg}= err.response.data
+            setErr(msg)
         })
     }, []);
 
@@ -56,7 +61,7 @@ const SingleArticle = () => {
             }) 
         })    
     }
-
+    if(err) return <ErrorPage error = {err}/>
     if (isLoading) return <h1 className='loader'>Loading....</h1>
 
 

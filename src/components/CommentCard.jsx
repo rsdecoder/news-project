@@ -5,6 +5,7 @@ import { deleteComment } from '../../apis';
 import { useContext } from 'react';
 import UserContext from '../contexts/User';
 
+
 const CommentCard = ({comment, setComments}) => {
     let count = 0;
     const {loggedInUser} = useContext(UserContext)
@@ -14,17 +15,14 @@ const CommentCard = ({comment, setComments}) => {
         console.log(event)
         const commentId = event.target.value;
         if(loggedInUser.username === author ) {
-            
             deleteComment(event.target.value).then(() => {
                 alert("Comment deleted")
                 setComments((currComments) => {
                     const commentsToKeep = currComments.filter((currcomment) => {
                         return currcomment.comment_id !== Number(commentId) })
                     return commentsToKeep;
-            })   
+            }) 
             }).catch((err) => {
-
-                
                 alert("something went wrong! please try again!")
                 setComments((currComments) => {
                     return currComments;
@@ -35,8 +33,7 @@ const CommentCard = ({comment, setComments}) => {
             
         }
         else {
-            alert("Not authenticated user! Please login to delete your comment!")
-            
+            alert("Not authenticated user! Please login to delete your comment!")  
         }
            
     }

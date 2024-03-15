@@ -26,7 +26,6 @@ const CommentAdder = ({setComments, articleId}) => {
                 })
             })
         .catch((err) => {
-            
             setErr('Something went wrong! please try again!')
         })
         setIsLoading(false)

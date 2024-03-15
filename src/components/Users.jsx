@@ -14,7 +14,7 @@ const Users = () => {
             setUsers(users)
             setIsLoading(false);
         })
-    }, [])
+    }, [setUsers])
 
     if(isLoading) {
         return <h1 className='loader'>Loading....<RotateRightSharpIcon /></h1>

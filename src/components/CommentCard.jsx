@@ -11,8 +11,10 @@ const CommentCard = ({comment, setComments}) => {
     const {comment_id, article_id, body, votes , author, created_at} = comment
 
     function handleClick(event) {
+        console.log(event)
         const commentId = event.target.value;
         if(loggedInUser.username === author ) {
+            
             deleteComment(event.target.value).then(() => {
                 alert("Comment deleted")
                 setComments((currComments) => {
@@ -21,14 +23,20 @@ const CommentCard = ({comment, setComments}) => {
                     return commentsToKeep;
             })   
             }).catch((err) => {
+
+                
                 alert("something went wrong! please try again!")
                 setComments((currComments) => {
                     return currComments;
             })
+            
             })
+            
+            
         }
         else {
             alert("Not authenticated user! Please login to delete your comment!")
+            
         }
            
     }
@@ -54,7 +62,7 @@ const CommentCard = ({comment, setComments}) => {
                     <ThumbDownAltOutlinedIcon className ='vote-section-item'/>
                     <p className ='vote-section-item'>{count}</p>
                 </div>
-                <button value = {comment_id} className='delete-button' onClick = {handleClick}>Delete comment</button>
+                <button value = {comment_id} className='delete-button' disabled= {false} onClick = {handleClick}>Delete comment</button>
             </div>
         </div>
     );

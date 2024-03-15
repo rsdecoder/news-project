@@ -8,11 +8,13 @@ import Topics from './components/Topics'
 import Users from './components/Users'
 import './App.css'
 import UserContext from './contexts/User'
+import ErrorPage from './components/ErrorPage'
+
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    username: 'strongbuddy',
-    avatar_url: 'Mr.Strong.png'
+    username: 'weegembump',
+    avatar_url: 'https://vignette.wikia.nocookie.net/mrmen/images/7/7e/MrMen-Bump.png/revision/latest?cb=20180123225553'
   })
 
   return (
@@ -25,6 +27,7 @@ function App() {
           <Route path = "/articles/:article_id" element = {<SingleArticle />} />
           <Route path = "/topics" element = {<Topics/>}/>
           <Route path = "/users" element = {<Users/>}/>
+          <Route path = "*" element = {<ErrorPage/>}/>
         </Routes>
       </UserContext.Provider>
     </>

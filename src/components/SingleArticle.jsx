@@ -10,7 +10,6 @@ import { patchArticle } from '../../apis';
 
 const SingleArticle = () => {
     const {article_id} = useParams()
-    const [err, setErr] =  useState(null)
     const [isLoading, setIsLoading] = useState(true)
     const [article, setArticle] = useState({})
 
@@ -36,8 +35,7 @@ const SingleArticle = () => {
                 return currArticle.map((article) => {
                     return {...article, votes: article.votes - 1}
                 });
-            });
-            setErr("Something went Wrong! Please Try again after sometime.")           
+            });          
         });
     
     }

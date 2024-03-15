@@ -364,3 +364,10 @@
    margin-left: 50%;
    font-size: 18px;
 }
+.red {
+    font-family: Arial;
+    background-color: rgb(225, 210, 210);
+    width: 300px;
+    color: red;
+    text-align: center;
+}

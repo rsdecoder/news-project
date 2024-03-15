@@ -12,7 +12,6 @@ const CommentCard = ({comment, setComments}) => {
     const {comment_id, article_id, body, votes , author, created_at} = comment
 
     function handleClick(event) {
-        console.log(event)
         const commentId = event.target.value;
         if(loggedInUser.username === author ) {
             deleteComment(event.target.value).then(() => {

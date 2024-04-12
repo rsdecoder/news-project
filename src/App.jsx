@@ -6,7 +6,7 @@ import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
 import Topics from './components/Topics'
 import Users from './components/Users'
-import './App.css'
+import './App1.css'
 import UserContext from './contexts/User'
 import ErrorPage from './components/ErrorPage'
 
@@ -18,9 +18,9 @@ function App() {
   })
 
   return (
-    <>
     <UserContext.Provider value={{loggedInUser: loggedInUser, setLoggedInUser: setLoggedInUser}}>
       <Header />
+      <main className = 'main'>
         <Routes>
           <Route path = "/" element = {<Home />} />
           <Route path = "/articles" element = {<Articles />} />
@@ -29,8 +29,8 @@ function App() {
           <Route path = "/users" element = {<Users/>}/>
           <Route path = "*" element = {<ErrorPage/>}/>
         </Routes>
+      </main>
       </UserContext.Provider>
-    </>
   )
 }
 

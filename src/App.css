@@ -1,4 +1,122 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid rgb(199, 190, 190);
+    height: 80px;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: rgb(31, 42, 75);
+    color: white;
+}
+.header-welcome {
+    padding: 10px;
+    margin-left: 10px;
+}
+.header-wrapper{
+    background-color: red;
+    color: white;
+    margin: 4px;
+    padding: 2px;
+}
 
+.login-info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+.logged-in-img {
+    height: 50px;
+    width: 50px;
+}
+.nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-item {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    margin-left: 30px;
+}
+.nav-item:hover {
+    border-bottom: 2px solid rgb(226, 97, 77);
+    color: red;
+}
+
+.dropdown{
+    display: none;
+}
+
+.main {
+    height: 100%;
+}
+
+#articles {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+.articles-container {
+    display: inline-flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+.article {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+    align-items: left;
+    height: 500px;
+    width: 400px;
+    color: white;
+    background-color: rgb(70, 86, 133);
+    box-shadow: 2px 2px 2px 2px rgb(117, 111, 111); 
+    margin: 20px;
+}
+.article-img {
+    height: 70%;
+    width: 100%;
+}
+.article-item {
+    padding: 20px;
+    color: white;
+}
+.nav-log-in {
+    font-style: italic;
+    /* box-shadow: 1px 2px 2px 2px rgb(228, 125, 125); */
+}
+
+
+ @media only screen and (max-width: 600px) { 
+    .nav {
+        display: none;
+    } 
+    .header{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .dropdown .icon {
+        display: relative;
+        top: 0;  
+    }
+    .dropdown .icon {
+        display: block;
+    } 
+  }
+/* 
 .header {
     background-color: sandybrown;
     text-align: center;
@@ -321,9 +439,9 @@
     height: 200px;
     margin-right: 20px;
 }
-/* .topic-container:hover {
+.topic-container:hover {
     background-color: rgb(211, 138, 69);
-} */
+}
 .topic-item {
     padding: 20px;
     align-self: center;
@@ -370,4 +488,4 @@
     width: 300px;
     color: red;
     text-align: center;
-}
+} */

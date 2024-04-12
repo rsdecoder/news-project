@@ -37,26 +37,29 @@ const Articles = () => {
     } 
     
     return (
-        <div id = 'articles'>
+        <div id = 'article-page'>
             <div className= 'sort-articles'>
-                <label htmlFor="sort_by">Sort By </label>
-                <select id = 'sort_by' value = {sortBy} onChange = {(event) => {setSortBy(event.target.value)}}>
-                    <option value = "created_at" >Date</option>
-                    <option value = 'comment_count'>comment count</option>
-                    <option value = 'votes'>votes</option> 
-                </select> 
-                <label htmlFor="order_by"> Order By </label>
-                <select id =  'order_by' value = {orderBy} onChange = {(event) => {setOrderBy(event.target.value)}}>
-                    <option value = 'desc'>Desc</option>
-                    <option value = 'asc'>Asc</option>
-                </select>
+                <div className = "sort-section">
+                    <label htmlFor="sort_by" className='sort-articles-item'>Sort By<span className='second-word-formatting'></span></label>
+                    <select id = 'sort_by'className='sort-articles-item' value = {sortBy} onChange = {(event) => {setSortBy(event.target.value)}}>
+                        <option value = "created_at" >Date</option>
+                        <option value = 'comment_count'>comment count</option>
+                        <option value = 'votes'>votes</option> 
+                    </select>
+                </div>
+                <div className = "sort-section">
+                    <label htmlFor="order_by" className='sort-articles-item'> Order By<span className='second-word-formatting'></span></label>
+                    <select id =  'order_by' className='sort-articles-item'value = {orderBy} onChange = {(event) => {setOrderBy(event.target.value)}}>
+                        <option value = 'desc'>Desc{" "}</option>
+                        <option value = 'asc'>Asc {" "}</option>
+                    </select>
+                </div>
             </div>
-            <ul>
+            <div className = 'articles-container'>
                 {articles.map((article) => {  
                      return <ArticleShowCard article = {article} key = {article.article_id}/>
                 })}
-            </ul>
-            
+            </div>        
         </div>
     );
 };

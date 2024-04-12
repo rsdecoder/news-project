@@ -48,11 +48,11 @@ const ArticleShowCard = ({article}) => {
 
   return (
     <article className= "article"> 
-      <Link to = {`/articles/${article_id}`} className= "article-item article-heading"><h3>{title} </h3></Link>
-      <img className = "article-item" src= {article_img_url} width= "100px" height= "100px" alt = {`An article about ${topic}`}  />
-      <p>Article about {topic}</p>
-      <p className = "article-item">Written by: <b>{author}</b></p> 
-      <div className= "rating article-item">
+      <img className = "article-item article-img" src= {article_img_url} alt = {`An article about ${topic}`}  />
+      <Link to = {`/articles/${article_id}`} className= "article-item article-heading"><h2>{title} </h2></Link>
+      <h3 className= 'article-item article-info'>Topic: <span className='article-topic-wrapper'>{topic}</span></h3>
+       <p className = "article-item article-info">Written by: <b>{author}</b></p> 
+      { /*<div className= "rating article-item">
         <div className = "vote">
             <div className ="up-vote">
                 <button className= "button-vote" onClick = {upVote}><ThumbUpAltOutlinedIcon className ='vote-section-item'/></button>
@@ -63,13 +63,13 @@ const ArticleShowCard = ({article}) => {
             </div>
 
         </div>
-      </div> 
-      <Expander className = "comments-expander" comment_count = {comment_count}>
+      </div>  */}
+      {/* <Expander className = "comments-expander" comment_count = {comment_count}>
      <div>
       
        {<Comments articleId = {article_id}/>}
      </div>
-   </Expander>
+   </Expander> */}
     </article>
 
   );

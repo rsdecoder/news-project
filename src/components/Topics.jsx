@@ -16,13 +16,14 @@ const Topics = () => {
     }, [])
     if(isLoading) return <h1>Loading...</h1>
     return (
-        <div id = "topics">
-            <p className= "topic-header">View Articles by Topics below</p>
-            <ul className= 'topics-list'>
+        <div id = "topics-page">
+            <p className= "topic-header">View Articles by the following topics.</p>
+            <div className = 'topics-container'>
                 {topics.map((topic) => {
                     return <TopicShowCard topic = {topic} key = {topic.slug}/>
                 })}
-            </ul>
+            </div>
+            
         </div>
     );
 };

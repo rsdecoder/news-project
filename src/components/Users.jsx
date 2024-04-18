@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAllUsers } from '../../apis'; 
 import UserShowCard from './UserShowCard';
-import RotateRightSharpIcon from '@mui/icons-material/RotateRightSharp';
+import { ThreeDots } from 'react-loader-spinner';
+
 
 const Users = () => { 
     const [isLoading, setIsLoading] = useState(true);
@@ -17,18 +18,26 @@ const Users = () => {
     }, [setUsers])
 
     if(isLoading) {
-        return <h1 className='loader'>Loading....<RotateRightSharpIcon /></h1>
+        return(<ThreeDots
+            visible={true}
+            height= "30%"
+            width="30%"
+            color="#4fa94d"
+            radius="9"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClass="spinner-icon"
+            />)
     } 
     
     return (
-        <div id = 'users'>
-            <ul>
-               <h1>Choose a user to Login</h1>
+        <div id = 'users-page'>   
+               <h3>You are currently logged in as a guest, Choose a different user to Login</h3>
+               <div className = "users">
                 {users.map((user) => {  
                      return <UserShowCard user = {user} key = {user.username}/>
-                })}
-            </ul>
-            
+                })}            
+               </div>
         </div>
     );
 };

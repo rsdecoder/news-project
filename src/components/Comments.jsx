@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchAllComments } from '../../apis';
 import CommentCard from './CommentCard';
 import CommentAdder from './CommentAdder';
+import { Comment, ProgressBar } from 'react-loader-spinner';
 
 
 const Comments = ({articleId}) => {
@@ -19,24 +20,39 @@ const Comments = ({articleId}) => {
     }, [setComments])
 
 
+    // if (isLoading) {
+    //     return(<ProgressBar
+    //     visible={true}
+    //     height="80"
+    //     width="80"
+    //     color="#4fa94d"
+    //     borderColor='rgb(63, 80, 138)'
+    //     ariaLabel="progress-bar-loading"
+    //     wrapperStyle={{}}
+    //     wrapperClass="progressBar"
+    //     />)
+    // }
 
+    if (isLoading) {
+        return(<Comment
+            visible={true}
+            height="80"
+            width='80'
+            ariaLabel="comment-loading"
+            wrapperStyle={{}}
+            wrapperClass="comment-wrapper"
+            color="#fff"
+            backgroundColor="rgb(53, 85, 190)"
+            />)
+    }
 
-
-
-
-
-    if(isLoading) return <h1>Loading...</h1>
     return (
         
-        <div className = "comment-body">
+        <div className = "comments-section-container">
             <CommentAdder setComments = {setComments} articleId = {articleId}/>
-            <ul className='comment-list'>
             {comments.map((comment, index) => {
                 return <CommentCard comment = {comment} setComments = {setComments} className = "comment-items" key = {index}/>
-            })}
-            </ul>
-
-            
+            })}  
         </div>
     );
 };

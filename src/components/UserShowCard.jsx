@@ -16,12 +16,10 @@ const UserShowCard = ({user}) => {
 
     return (
         <div className= 'user'>
-            <li>
-                <h3 className='user-items'>{username}</h3>
-                <img src={avatar_url} width="100px" height="100px" alt = "A picture of the user" className='user-items'/>
-                <h4 className='user-items'>Name: {name}</h4>
-            </li>
-            <button className='user-items user-button' onClick={() => handleClick(user)}>Login</button>   
+            <h3 className='user-items user-name'>{name}</h3>
+            <img src={avatar_url} width="100px" height="100px" alt = "A picture of the user" className='user-items user-img'/>
+            <h4 className='user-items user-username'>username: <span className = "username">{username}</span></h4>
+            <button className='user-items user-log-in-button' onClick={() => handleClick(user)}>Login</button>   
         </div>
         
     );

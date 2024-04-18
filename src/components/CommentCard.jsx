@@ -25,40 +25,26 @@ const CommentCard = ({comment, setComments}) => {
                 alert("something went wrong! please try again!")
                 setComments((currComments) => {
                     return currComments;
-            })
-            
-            })
-            
-            
+            })            
+            })            
         }
         else {
             alert("Not authenticated user! Please login to delete your comment!")  
-        }
-           
+        }       
     }
 
-
-
-
-
-    return (
-        
-        <div className = "comment-body-container"> 
-            <div className= "comment-container">
-                <h4 className = "comment-body-item"><span className= "comment-heading"><em>{author}</em></span> </h4>
-                <p className = "comment-body-item comment">{body}</p>
-                <p className = "comment-body-item time-stamp"><span className="grey">Time-stamp: {created_at}</span></p>
-            </div>
-            <div className = "vote">
-                <div className ="up-vote">
-                    <ThumbUpAltOutlinedIcon className ='vote-section-item'/>
-                    <p className ='vote-section-item'>{votes}</p>
-                </div>
-                <div className ="down-vote">
+    return (   
+        <div className = "comments-container">
+            <h4 className = 'comment-item'><span className= "comment-author">{author}</span> </h4>
+            <p className = "comment-item comment-body">{body}</p>
+            <p className = "comment-item comment-time-stamp">{created_at}</p>
+            <div className = "comment-item comment-vote-section">
+                <div className ="comment-vote comment-item">
+                    <ThumbUpAltOutlinedIcon className="vote-section-item"/>
+                    <p className="vote-section-item">{votes}</p>
                     <ThumbDownAltOutlinedIcon className ='vote-section-item'/>
-                    <p className ='vote-section-item'>{count}</p>
                 </div>
-                <button value = {comment_id} className='delete-button' disabled= {false} onClick = {handleClick}>Delete comment</button>
+                <button disabled = {loggedInUser.username === author? false : true} value = {comment_id}  className='comment-item delete-button' onClick = {handleClick}>Delete comment</button>
             </div>
         </div>
     );

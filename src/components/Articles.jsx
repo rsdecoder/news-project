@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { fetchArticles} from '../../apis';
 import ArticleShowCard from './ArticleShowCard'; 
-import RotateRightSharpIcon from '@mui/icons-material/RotateRightSharp';
 import { Link, useSearchParams } from 'react-router-dom';
 import ErrorPage from './ErrorPage';
+import { ThreeDots } from 'react-loader-spinner';
 
 
 
@@ -17,6 +17,7 @@ const Articles = () => {
     const [orderBy, setOrderBy] = useState('desc')
 
     const topicQuery = searchParams.get("topic");
+    console.log(topicQuery)
 
     useEffect(() => {
         setIsLoading(true);
@@ -33,11 +34,22 @@ const Articles = () => {
 
     if(err) return <ErrorPage error = {err}/>
     if(isLoading) {
-        return <h1 className='loader'>Loading....<RotateRightSharpIcon /></h1>
+        return (
+            <ThreeDots
+            visible={true}
+            height= "30%"
+            width="30%"
+            color="#4fa94d"
+            radius="9"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClass="spinner-icon"
+            />)
     } 
     
     return (
         <div id = 'article-page'>
+            <p className= {topicQuery? 'articles-sorted-heading': 'not-articles-sorted-heading'}>{topicQuery? `Articles related to ${topicQuery}`: null}</p>
             <div className= 'sort-articles'>
                 <div className = "sort-section">
                     <label htmlFor="sort_by" className='sort-articles-item'>Sort By<span className='second-word-formatting'></span></label>

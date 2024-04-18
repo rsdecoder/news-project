@@ -4,7 +4,6 @@ import { useContext } from "react";
 import UserContext from "../contexts/User";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
-
 const Header = () => {
   const { loggedInUser } = useContext(UserContext);
   const [showNavbar, setShowNavbar] = useState(false);
@@ -37,13 +36,23 @@ const Header = () => {
         <Link to="/topics" className="nav-item">
           Topics
         </Link>
-        <Link to="/users" className="nav-item nav-log-in">
-          {loggedInUser.username ? `${loggedInUser.username}` : "Login"}
-        </Link>
+        <div className="nav-item nav-account">
+          <Link to="/users">
+            <img
+              src={loggedInUser.avatar_url}
+              height="35px"
+              width="35px"
+              className="nav-account-img"
+            />
+          </Link>
+          <p className="nav-log-in">
+            {loggedInUser.username ? `${loggedInUser.username}` : "Login"}
+          </p>
+        </div>
         <Link to="/articles/:article" className="nav-item"></Link>
       </nav>
       <div className={`sidebar ${showNavbar ? "active" : ""}`}>
-        <div className="sidebar-backdrop" onClick= {handleCloseSidebar}>
+        <div className="sidebar-backdrop" onClick={handleCloseSidebar}>
           <ul className="sidebar-nav">
             <li>
               <Link to="/"> Home</Link>
@@ -55,11 +64,21 @@ const Header = () => {
               <Link to="/topics">Topics</Link>
             </li>
             <li>
-              <Link to="/users">
-                {loggedInUser.username ? `${loggedInUser.username}` : "Login"}
-              </Link>
+              <div>
+                <Link to="/users">
+                  <img
+                    src={loggedInUser.avatar_url}
+                    height="35px"
+                    width="35px"
+                    className="sidebar-account-icon"
+                  />
+                </Link>
+                <p className="sidebar-log-in">
+                  {loggedInUser.username ? `${loggedInUser.username}` : "Login"}
+                </p>
+              </div>
             </li>
-            <li>
+            <li className="hide-link">
               <Link to="/articles/:article"></Link>
             </li>
           </ul>

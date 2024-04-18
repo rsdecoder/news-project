@@ -10,9 +10,9 @@ const TopicShowCard = ({topic}) => {
 
     return (
         <div className = 'topic-container'>
-            <h3 className='topic-item'><span className='topic-slug'>{slug}</span></h3>
+            <p className='topic-item'><span className='topic-title'>{slug}</span></p>
             <p className='topic-item'><span className='topic-desc'>{description}</span></p>
-            <Link to ={topicsLink}><button className='topic-item topic-button'>View articles</button></Link>
+            <Link to ={topicsLink}><button className='topic-item topic-button'>View</button></Link>
         </div>
     );
 };

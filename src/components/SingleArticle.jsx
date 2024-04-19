@@ -106,8 +106,8 @@ const SingleArticle = () => {
                 Sequi sit tenetur itaque esse obcaecati iusto harum velit cum, illum vel. Harum dolorem eveniet, id temporibus quibusdam laudantium, recusandae ea sit aspernatur, sapiente iste velit eius cumque ab! Ullam.</p><br></br>
             </article><br></br>
             <section className = 'article-end-section'>
-                <p className = 'article-end-section-item'><b>Written by:</b> <span className='author-name'>{article[0].author}</span></p>
-                <p className = 'article-end-section-item'><span className = 'divider'>|</span><em>{(article[0].created_at)}</em></p>
+                <p className = 'article-end-section-item article-end-section-author'><b>Author:</b> <span className='author-name'>{article[0].author}</span></p>
+                <p className = 'article-end-section-item  article-end-section-time'><em>{(article[0].created_at)}</em></p>
             </section>
         </div>
     );

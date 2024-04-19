@@ -32,7 +32,7 @@ const Users = () => {
     
     return (
         <div id = 'users-page'>   
-               <h3>You are currently logged in as a guest, Choose a different user to Login</h3>
+               <p className='user-paragraph'>You are currently logged in as a guest, Choose a different user to Login</p>
                <div className = "users">
                 {users.map((user) => {  
                      return <UserShowCard user = {user} key = {user.username}/>

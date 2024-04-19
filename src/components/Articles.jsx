@@ -17,7 +17,6 @@ const Articles = () => {
     const [orderBy, setOrderBy] = useState('desc')
 
     const topicQuery = searchParams.get("topic");
-    console.log(topicQuery)
 
     useEffect(() => {
         setIsLoading(true);

@@ -4,6 +4,7 @@ import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 import { deleteComment } from '../../apis';
 import { useContext } from 'react';
 import UserContext from '../contexts/User';
+import moment from 'moment/moment';
 
 
 const CommentCard = ({comment, setComments}) => {
@@ -37,7 +38,7 @@ const CommentCard = ({comment, setComments}) => {
         <div className = "comments-container">
             <h4 className = 'comment-item'><span className= "comment-author">{author}</span> </h4>
             <p className = "comment-item comment-body">{body}</p>
-            <p className = "comment-item comment-time-stamp">{created_at}</p>
+            <p className = "comment-item comment-time-stamp">{moment.utc(created_at).fromNow()}</p>
             <div className = "comment-item comment-vote-section">
                 <div className ="comment-vote comment-item">
                     <ThumbUpAltOutlinedIcon className="vote-section-item"/>

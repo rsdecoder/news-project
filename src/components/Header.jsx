@@ -8,12 +8,16 @@ const Header = () => {
   const { loggedInUser } = useContext(UserContext);
   const [showNavbar, setShowNavbar] = useState(false);
 
+  
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
+  
   const handleCloseSidebar = () => {
     setShowNavbar(false);
   };
+
+  
 
   return (
     <header className="header">
@@ -64,7 +68,7 @@ const Header = () => {
               <Link to="/topics">Topics</Link>
             </li>
             <li>
-              <div>
+              <div className="sidebar-account">
                 <Link to="/users">
                   <img
                     src={loggedInUser.avatar_url}
@@ -72,10 +76,11 @@ const Header = () => {
                     width="35px"
                     className="sidebar-account-icon"
                   />
-                </Link>
+                
                 <p className="sidebar-log-in">
                   {loggedInUser.username ? `${loggedInUser.username}` : "Login"}
                 </p>
+                </Link>
               </div>
             </li>
             <li className="hide-link">

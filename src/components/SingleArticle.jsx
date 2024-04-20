@@ -9,13 +9,13 @@ import Expander from './Expander';
 import { patchArticle } from '../../apis';
 import ErrorPage from './ErrorPage';
 import { ThreeDots } from 'react-loader-spinner';
+import moment from 'moment/moment';
 
 const SingleArticle = () => {
     const [err, setErr] = useState(null)
     const {article_id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
     const [article, setArticle] = useState({})
-
 
     useEffect(() => {
         setIsLoading(true)
@@ -28,7 +28,7 @@ const SingleArticle = () => {
             setErr(msg)
         })
     }, []);
-    
+   
     function upVote() {      
         setArticle((currArticle) => {
             return currArticle.map((article) => {
@@ -107,7 +107,7 @@ const SingleArticle = () => {
             </article><br></br>
             <section className = 'article-end-section'>
                 <p className = 'article-end-section-item article-end-section-author'><b>Author:</b> <span className='author-name'>{article[0].author}</span></p>
-                <p className = 'article-end-section-item  article-end-section-time'><em>{(article[0].created_at)}</em></p>
+                <p className = 'article-end-section-item  article-end-section-time'><em>{moment.utc((article[0].created_at)).format('MMMM D, YYYY h:mm A')}</em></p>
             </section>
         </div>
     );

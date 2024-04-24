@@ -1,77 +1,54 @@
-import React from 'react';
-import { useState } from 'react';
-import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
-import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
-import Comments from './Comments';
-import Expander from './Expander';
-import { patchArticle } from '../../apis';
-import { useNavigate, Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import StarsIcon from "@mui/icons-material/Stars";
+import CommentIcon from "@mui/icons-material/Comment";
+import moment from "moment/moment";
 
-
-
-
-const ArticleShowCard = ({article}) => {
-    const [count, setCount] = useState(0)
-    const { topic, votes, created_at, title, article_img_url, author, comment_count, article_id } = article;
-    const [updatedVotes, setUpdatedVotes] = useState(votes);
-
-
-    function upVote() {
-        
-      setUpdatedVotes((currVotes) => {
-        return currVotes + 1
-      })
-      const incVotes = 1
-      patchArticle(article_id, incVotes).catch((err) => {
-            console.log(err);
-            setUpdatedVotes((currVotes) => {
-              return currVotes -1
-            })         
-        });
-        
-  }
-
-  function downVote() {
-        
-    setUpdatedVotes((currVotes) => {
-      return currVotes - 1
-    })
-    const decVotes = -1
-    patchArticle(article_id, decVotes).catch((err) => {
-      console.log(err);
-      setUpdatedVotes((currVotes) => {
-        return currVotes +1
-      })         
-  });
-      
-}
+const ArticleShowCard = ({ article }) => {
+  const {
+    topic,
+    votes,
+    created_at,
+    title,
+    article_img_url,
+    author,
+    comment_count,
+    article_id,
+  } = article;
 
   return (
-    <article className= "article"> 
-      <Link to = {`/articles/${article_id}`} className= "article-item article-heading"><h3>{title} </h3></Link>
-      <img className = "article-item" src= {article_img_url} width= "100px" height= "100px" alt = {`An article about ${topic}`}  />
-      <p>Article about {topic}</p>
-      <p className = "article-item">Written by: <b>{author}</b></p> 
-      <div className= "rating article-item">
-        <div className = "vote">
-            <div className ="up-vote">
-                <button className= "button-vote" onClick = {upVote}><ThumbUpAltOutlinedIcon className ='vote-section-item'/></button>
-            </div>
-            <p className='vote-section-item vote-count'>{updatedVotes}</p>
-            <div className ="down-vote">
-                <button className= "button-vote" onClick = {downVote}><ThumbDownAltOutlinedIcon className ='vote-section-item'/></button>
-            </div>
-
+    <article className="article">
+      <img
+        className="article-item article-img"
+        src={article_img_url}
+        alt={`An article about ${topic}`}
+      />
+      <Link
+        to={`/articles/${article_id}`}
+        className="article-item article-heading"
+      >
+        <p className="article-title">{title} </p>
+      </Link>
+      <p className="article-item article-info">
+        Topic: <span className="article-topic-wrapper">{topic}</span>
+      </p>
+      <p className="article-item article-info">
+        Author: <span className="article-author">{author}</span>
+      </p>
+      <div className="article-item article-sort-section">
+        <div className="article-sub-section">
+          <StarsIcon className="article-rating-icon" />
+          <p className="article-votes">{votes}</p>
         </div>
-      </div> 
-      <Expander className = "comments-expander" comment_count = {comment_count}>
-     <div>
-      
-       {<Comments articleId = {article_id}/>}
-     </div>
-   </Expander>
+        <div className="article-sub-section">
+          <CommentIcon className="article-comment-icon" />
+          <p className="article-comment-count">{comment_count}</p>
+        </div>
+        <p className="article-timestamp">
+          {moment.utc(created_at).format("MMMM D, YYYY h:mm A")}
+        </p>
+      </div>
     </article>
-
   );
 };
 

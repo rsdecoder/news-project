@@ -14,7 +14,7 @@
 - [npm](https://www.npmjs.com/) - Node package manager
 - Axios
 
-> Link to the backend hosted - https://nc-news-1-ukr6.onrender.com
+> Link to the backend hosted - https://nc-news-1-ukr6.onrender.com/api
 
 > Minimun version of Node required to run the app locally - **Node.js v21.2.0**
 

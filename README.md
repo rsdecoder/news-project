@@ -1,6 +1,6 @@
 ## <p align="center">NC NEWS</p>
 
-- This NC News app displays the articles to the user. The user can view all the articles on one single page, view more about each article in a separate page by clicking on the individual article.
+- NC News is a news app displaying the articles to the user. The user can view all the articles on one single page, view more about each article in a separate page by clicking on the individual article.
 - The articles can also be viewed by topic by going to the topics page and selecting the topic that the user desires to read about.
 - The user can vote on an article, view comments, add comments and delete their own comments.
 - The user can also choose to log in as a different user from the list of users avaialble on the users page.
@@ -12,6 +12,7 @@
 - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Cascading style sheets
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Hyper Text Markup Language
 - [npm](https://www.npmjs.com/) - Node package manager
+- Axios
 
 > Link to the backend hosted - https://nc-news-1-ukr6.onrender.com
 
@@ -28,7 +29,7 @@
    
    ><code>cd news-project</code>
 
-   3. Run the following command to install all the packages needed to run the application)
+   3. Run the following command to install all the packages needed to run the application.
 
    ><code>npm install</code>
 

@@ -8,21 +8,22 @@ const Header = () => {
   const { loggedInUser } = useContext(UserContext);
   const [showNavbar, setShowNavbar] = useState(false);
 
-  
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
-  
+
   const handleCloseSidebar = () => {
     setShowNavbar(false);
   };
 
-  
-
   return (
     <header className="header">
       <div className="header-container">
-        <button className="menu-icon" onClick={handleShowNavbar}>
+        <button
+          className="menu-icon"
+          aria-label="menu"
+          onClick={handleShowNavbar}
+        >
           <MenuIcon />
         </button>
         <h1 className="header-welcome">
@@ -75,11 +76,14 @@ const Header = () => {
                     height="35px"
                     width="35px"
                     className="sidebar-account-icon"
+                    alt="An image showing user image"
                   />
-                
-                <p className="sidebar-log-in">
-                  {loggedInUser.username ? `${loggedInUser.username}` : "Login"}
-                </p>
+
+                  <p className="sidebar-log-in">
+                    {loggedInUser.username
+                      ? `${loggedInUser.username}`
+                      : "Login"}
+                  </p>
                 </Link>
               </div>
             </li>

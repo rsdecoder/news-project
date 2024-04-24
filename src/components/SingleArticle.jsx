@@ -110,46 +110,12 @@ const SingleArticle = () => {
         </Expander>
       </section>
       <article>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure unde
-          labore expedita obcaecati? Alias vel quae beatae! Corrupti odit at
-          illo harum, aliquam quod dicta quaerat quidem? Soluta, magnam
-          perspiciatis? Expedita enim aperiam facere beatae molestiae,
-          perspiciatis assumenda eius modi ipsa ipsam incidunt iure quaerat quod
-          aliquam, sed quia totam. Provident vitae repellat cumque soluta quia
-          facilis quisquam animi impedit! Omnis voluptate, aut magnam sit quia
-          asperiores sint explicabo, sequi nihil accusamus ipsa veritatis itaque
-          ipsum praesentium impedit quasi amet earum ea iusto consectetur
-          tenetur nam minima totam. Voluptas, distinctio? Velit repellat
-          veritatis fugit, quae dolorum quis consequatur aut rerum placeat
-          asperiores natus at mollitia fuga est atque et cupiditate ea aliquam
-          beatae odit repudiandae eveniet nihil, amet doloribus? Aut. Neque
-          porro placeat sint, consectetur autem tempora in atque numquam,
-          repellendus quidem iure laborum dolorum eveniet labore rem possimus
-          temporibus quisquam error aspernatur sapiente dolor officiis eum?
-          Consectetur, ut earum?
-        </p>
+        <p>{article[0].body}</p>
         <br></br>
-        <p>
-          Esse fugiat minus eveniet labore, ipsam suscipit officiis, beatae nisi
-          enim maiores unde aspernatur recusandae molestias rem, blanditiis
-          incidunt! Labore sapiente sed esse fuga possimus ipsum, consequuntur
-          consequatur velit deleniti! Suscipit alias accusamus explicabo quidem
-          dicta ab commodi nihil quo enim veniam, recusandae porro facere dolore
-          dolorem neque. Perferendis, eos sint voluptates facere consequuntur ad
-          a repellendus iste explicabo ea. Dolores, voluptatum numquam illo,
-          libero ex ipsum, recusandae cupiditate praesentium quisquam natus
-          exercitationem alias quae laudantium esse aut officia. Neque labore
-          temporibus cum sapiente nulla dicta, iste quaerat praesentium harum.
-          Sapiente asperiores quis itaque iste, aut, necessitatibus tempora vel
-          nulla, dolores eos error cum! Error aperiam ea facilis voluptate
-          cupiditate excepturi, dolore repudiandae autem consectetur qui atque
-          debitis unde culpa! Sequi sit tenetur itaque esse obcaecati iusto
-          harum velit cum, illum vel. Harum dolorem eveniet, id temporibus
-          quibusdam laudantium, recusandae ea sit aspernatur, sapiente iste
-          velit eius cumque ab! Ullam.
-        </p>
-        <br></br>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi dolor necessitatibus porro reprehenderit tempora voluptas tenetur molestias ducimus, iure quia dignissimos facilis et minus cupiditate voluptates ullam error, quos maiores.
+        Quo vel ratione, assumenda ducimus iusto, incidunt corrupti quidem error eveniet magnam necessitatibus, commodi nobis. Ad minus quaerat aperiam esse a, itaque est animi rerum deleniti in magnam! Amet, voluptatum!
+        Impedit ducimus voluptate, nobis soluta aliquam quibusdam minus exercitationem beatae architecto obcaecati repellat possimus tempora quisquam qui? Asperiores, at commodi deleniti voluptates autem reiciendis quaerat incidunt, nemo, doloribus eum nulla.
+        Ratione aperiam earum id, quam veniam doloribus quidem, unde voluptas officiis voluptatum neque facilis animi provident incidunt, accusamus maxime eaque numquam autem deserunt! Deserunt et iste sunt laborum reiciendis magnam?</p>
       </article>
       <br></br>
       <section className="article-end-section">

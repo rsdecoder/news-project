@@ -36,3 +36,6 @@
    4. To start running this app, run following command
 
    ><code>npm run dev</code>
+
+#### View the deployed app here
+>https://nc-news-ragini.netlify.app

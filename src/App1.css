@@ -231,14 +231,13 @@ header {
 }
 
 .article-img {
-    height: 600px;
+    height: 500px;
     width: 100%;
     border-radius: 20px;
 }
 .article-title {
-    font-size: x-large;   
+    font-size: 20px;   
     font-weight: bold;
-    /* height: 40px; */
 }
 .article-item {
     padding: 6px;
@@ -251,7 +250,6 @@ header {
     display: flex;
     align-items: center;
     align-self: flex-end;
-    /* justify-content: space-evenly; */
     width: 100px;
     
 }
@@ -534,7 +532,7 @@ header {
     border-radius: 10px;
     margin-bottom: 20px;
     padding-bottom: 20px;
-    height: 600px;
+
     width: 100%;
     overflow: scroll;
 }

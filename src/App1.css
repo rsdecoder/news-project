@@ -75,6 +75,7 @@ header {
 #home {
     margin: 10px 10px 40px 10px;
     padding-bottom: 30px;
+    height: fit-content;
 }
 .home-welcome {
     text-align: center;

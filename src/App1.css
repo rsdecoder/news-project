@@ -312,7 +312,7 @@ header {
 .topic-header {
     font-weight: 800;
     font-size: x-large;
-    margin: 30px;
+    margin-top: 30px;
 }
 
 .topics-container {
@@ -331,7 +331,7 @@ header {
     color: white;
     height: 200px;
     width: 200px;
-    margin: 15px;
+    margin: 40px;
     background-color: rgb(63, 80, 138);
     border-radius: 20%;
     align-items: center;

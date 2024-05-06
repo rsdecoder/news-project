@@ -73,7 +73,8 @@ header {
     text-decoration: none;
 }
 #home {
-    margin: 30px;
+    margin: 10px 10px 40px 10px;
+    /* margin: 30px; */
 }
 .home-welcome {
     text-align: center;

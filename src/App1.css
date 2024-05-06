@@ -212,6 +212,7 @@ header {
     align-items: center;
     justify-content: space-evenly;
     margin-top: 30px;
+    margin-bottom: 30px;
     height: 100%;
     width: 100%;
     overflow-y: auto;
